@@ -27,7 +27,10 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        # Work around npm optional-dependency bug (#4828): a lockfile generated
+        # on a different OS can make npm skip the platform-specific Rollup
+        # native binary. Dropping it forces a fresh resolve for this runner.
+        run: rm -f package-lock.json && npm install
 
       - name: Build
         run: npm run build
