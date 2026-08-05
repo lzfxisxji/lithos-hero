@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+
+# build output
+dist
+
+# local npm cache (workaround for this box's cache EPERM)
+.npm-cache
+
+# misc
+*.local
+*.tsbuildinfo
+.DS_Store
+
+# project memory / local tooling
+.workbuddy
